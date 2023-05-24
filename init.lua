@@ -1,16 +1,29 @@
+require("tung.remap")
 require("tung.plugins-setup")
-require("tung.core.options")
-require("tung.core.keymaps")
-require("tung.core.colorscheme")
-require("tung.plugins.comment")
-require("tung.plugins.nvim-tree")
-require("tung.plugins.lualine")
 require("tung.plugins.telescope")
-require("tung.plugins.nvim-cmp")
-require("tung.plugins.lsp.mason")
-require("tung.plugins.lsp.lspsaga")
-require("tung.plugins.lsp.lspconfig")
-require("tung.plugins.lsp.null-ls")
-require("tung.plugins.autopairs")
+require("tung.plugins.nvimtree")
 require("tung.plugins.treesitter")
-require("tung.plugins.gitsigns")
+
+local opt = vim.opt
+-- line numbers
+opt.relativenumber = true -- show relative line numbers
+opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+
+-- tabs & indentation
+opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
+opt.shiftwidth = 2 -- 2 spaces for indent width
+opt.expandtab = true -- expand tab to spaces
+opt.autoindent = true -- copy indent from current line when starting new one
+
+-- line wrapping
+opt.wrap = false -- disable line wrapping
+
+-- clipboard
+opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+
+-- set colorscheme to nightfly with protected call
+local status, _ = pcall(vim.cmd, "colorscheme tokyonight")
+if not status then
+  print("Colorscheme not found!") -- print error if colorscheme not installed
+  return
+end

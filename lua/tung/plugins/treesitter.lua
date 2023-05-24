@@ -1,4 +1,3 @@
--- import nvim-treesitter plugin safely
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
 if not status then
   return
@@ -25,8 +24,8 @@ treesitter.setup({
     "css",
     "markdown",
     "markdown_inline",
-    "svelte",
-    "graphql",
+    "java",
+    "python",
     "bash",
     "lua",
     "vim",
