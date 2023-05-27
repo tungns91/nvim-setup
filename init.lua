@@ -64,7 +64,7 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
-
+  'ThePrimeagen/vim-be-good',
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -298,6 +298,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>fj", ":Ex<CR>", { noremap = true })
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
